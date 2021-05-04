@@ -1,7 +1,7 @@
 ﻿namespace RoofWallet.Domain.Entities
 {
     /// <summary>
-    /// 
+    /// Para dolaşımının loglarının tutulması
     /// </summary>
     public class ProcessLog : BaseEntity
     {

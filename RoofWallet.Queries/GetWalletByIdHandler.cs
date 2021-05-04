@@ -25,7 +25,7 @@ namespace RoofWallet.Queries
                 .Include(x=> x.Moneys)
                 .FirstOrDefaultAsync(x => x.Id == request.Id
                 , cancellationToken);
-            // Cuzdan yoksa hata gonder
+            // Cüzdan yoksa hata gönder
             if (wallet == null)
             {
                 throw new Exception("Cuzdan bulunamadi!");
@@ -42,7 +42,7 @@ namespace RoofWallet.Queries
 
             if (wallet.Moneys.Any())
             {
-                // Cuzdandaki paralar kur bazli gruplaniyor.
+                // Cüzdandaki paralar kur bazlı gruplanıyor.
                 response.Moneys = wallet.Moneys
                     .GroupBy(money => money.CurrencyCode, money => money, (key, items) => new MoneyModel
                     {

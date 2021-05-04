@@ -8,7 +8,7 @@ using RoofWallet.Messages.Commands;
 
 namespace RoofWallet.Commands
 {
-    public class AddMoneyToWalletHandler : IRequestHandler<AddMoneyToWallet, bool>
+    public class AddMoneyToWalletHandler : IRequestHandler<AddMoneyToWallet, Guid>
     {
         private readonly RoofWalletContext _context;
 
@@ -17,7 +17,7 @@ namespace RoofWallet.Commands
             _context = context;
         }
 
-        public async Task<bool> Handle(AddMoneyToWallet request, CancellationToken cancellationToken)
+        public async Task<Guid> Handle(AddMoneyToWallet request, CancellationToken cancellationToken)
         {
             Money money = new Money
             {
@@ -37,7 +37,7 @@ namespace RoofWallet.Commands
             await _context.Moneys.AddAsync(money, cancellationToken);
             await _context.ProcessLogs.AddAsync(processLog, cancellationToken);
             var create = await _context.SaveChangesAsync(cancellationToken);
-            return create > 0;
+            return money.Id;
         }
     }
 }

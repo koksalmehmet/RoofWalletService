@@ -10,7 +10,7 @@ using RoofWallet.Messages.Commands;
 
 namespace RoofWallet.Commands
 {
-    public class UpdateWalletHandler : IRequestHandler<UpdateWallet, bool>
+    public class UpdateWalletHandler : IRequestHandler<UpdateWallet, Guid>
     {
         private readonly RoofWalletContext _context;
         public UpdateWalletHandler(RoofWalletContext context)
@@ -18,7 +18,7 @@ namespace RoofWallet.Commands
             _context = context;
         }
 
-        public async Task<bool> Handle(UpdateWallet request, CancellationToken cancellationToken)
+        public async Task<Guid> Handle(UpdateWallet request, CancellationToken cancellationToken)
         {
             Wallet wallet = await _context.Wallets.FirstOrDefaultAsync(x => x.Id == request.Id, cancellationToken);
             // Cüzdan yoksa hata gönder.
@@ -31,7 +31,7 @@ namespace RoofWallet.Commands
             
             _context.Wallets.Update(wallet);
             var update = await _context.SaveChangesAsync(cancellationToken);
-            return update > 0;
+            return wallet.Id;
         }
     }
 }

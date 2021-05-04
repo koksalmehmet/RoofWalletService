@@ -3,7 +3,7 @@ using MediatR;
 
 namespace RoofWallet.Messages.Commands
 {
-    public class UpdateWallet : IRequest<bool>
+    public class UpdateWallet : IRequest<Guid>
     {
         public Guid Id { get; set; }
         public string Name { get; set; }

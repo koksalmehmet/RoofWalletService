@@ -39,7 +39,7 @@ namespace RoofWallet.Queries
                 };
                 if (wallet.Moneys.Any())
                 {
-                    // Cuzdandaki paralar kur bazli gruplaniyor.
+                    // Cüzdandaki paralar kur bazlı gruplanıyor.
                     model.Moneys = wallet.Moneys
                         .GroupBy(money => money.CurrencyCode, money => money, (key, items) => new MoneyModel
                         {

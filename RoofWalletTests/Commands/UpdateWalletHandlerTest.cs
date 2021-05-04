@@ -33,7 +33,7 @@ namespace RoofWalletTests.Commands
             };
             var handler = new UpdateWalletHandler(_context);
             var response = await handler.Handle(request, CancellationToken.None);
-            Assert.True(response);
+            Assert.True(Guid.TryParse(response.ToString(), out _));
         }
         private void CreateWallet(Guid id)
         {

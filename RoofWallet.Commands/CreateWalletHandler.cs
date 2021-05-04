@@ -10,7 +10,7 @@ using RoofWallet.Messages.Commands;
 
 namespace RoofWallet.Commands
 {
-    public class CreateWalletHandler : IRequestHandler<CreateWallet, bool>
+    public class CreateWalletHandler : IRequestHandler<CreateWallet, Guid>
     {
         private readonly RoofWalletContext _context;
         public CreateWalletHandler(RoofWalletContext context)
@@ -18,14 +18,14 @@ namespace RoofWallet.Commands
             _context = context;
         }
 
-        public async Task<bool> Handle(CreateWallet request, CancellationToken cancellationToken)
+        public async Task<Guid> Handle(CreateWallet request, CancellationToken cancellationToken)
         {
             // Aynı owner'a ait aynı isimde cüzdan olmasının önüne geçer.
             var existsWalletName = await _context.Wallets.AnyAsync(
                 x => x.OwnerId == request.OwnerId && string.Equals(x.Name, request.Name, StringComparison.CurrentCultureIgnoreCase), cancellationToken);
             if (existsWalletName)
             {
-                throw new Exception("Bu isimde daha once bir cuzdan eklenmis! Lutfen baska bir isim kullaniniz!");
+                throw new Exception("Bu isimde daha önce bir cüzdan eklenmiş! Lütfen başka bir isim kullanınız!");
             }
 
             Wallet wallet = new Wallet
@@ -36,7 +36,7 @@ namespace RoofWallet.Commands
                 OwnerId = request.OwnerId,
             };
             
-            // Cuzdan olusturulurken para varsa eklenecek.
+            // Cüzdan oluşturulurken para varsa eklenecek.
             if (request.Moneys != null && request.Moneys.Any())
             {
                 wallet.Moneys = request.Moneys.Select(w => new Money
@@ -46,7 +46,7 @@ namespace RoofWallet.Commands
                     CreatedDate = DateTime.Now,
                 }).ToList();
 
-                // Eklenen paralarin loglari tutuluyor.
+                // Eklenen paraların logları tutuluyor.
                 ProcessLog[] processLogs = wallet.Moneys.Select(x => new ProcessLog
                 {
                     Amount = x.Amount,
@@ -59,7 +59,7 @@ namespace RoofWallet.Commands
 
             await _context.Wallets.AddAsync(wallet, cancellationToken);
             var save = await _context.SaveChangesAsync(cancellationToken);
-            return save > 0;
+            return wallet.Id;
         }
     }
 }

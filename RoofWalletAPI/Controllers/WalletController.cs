@@ -18,43 +18,71 @@ namespace RoofWalletAPI.Controllers
         }
 
         [HttpPost]
-        public async Task<bool> Post([FromBody] CreateWallet request)
+        public async Task<Guid> Post([FromBody] CreateWallet request)
         {
             var response = await _mediator.Send(request);
             return response;
         }
 
         [HttpPost("AddMoneyToWallet")]
-        public async Task<bool> Post([FromBody] AddMoneyToWallet request)
+        public async Task<Guid> Post([FromBody] AddMoneyToWallet request)
         {
             var response = await _mediator.Send(request);
             return response;
         }
-        [HttpPut("{id}")]
-        public async Task<bool> Put(Guid id, [FromBody] UpdateWallet request)
+        
+        [HttpPost("MoneyTransfer")]
+        public async Task<bool> Post([FromBody] MoneyTransfer request)
+        {
+            var response = await _mediator.Send(request);
+            return response;
+        }
+        
+        [HttpPut("{id:guid}")]
+        public async Task<Guid> Put(Guid id, [FromBody] UpdateWallet request)
         {
             request.Id = id;
             var response = await _mediator.Send(request);
             return response;
         }
         
-        [HttpDelete("{id}")]
-        public async Task<bool> Delete([FromRoute] DeleteWallet request)
+        [HttpDelete("{id:guid}")]
+        public async Task<bool> Delete(Guid id)
         {
+            var request = new DeleteWallet
+            {
+                Id = id
+            };
             var response = await _mediator.Send(request);
             return response;
         }
         
         [HttpGet("GetWalletsByOwnerId/{ownerId}")]
-        public async Task<WalletModel[]> Get([FromRoute]GetWalletsByOwnerId request)
+        public async Task<WalletModel[]> Get(string ownerId)
         {
+            var request = new GetWalletsByOwnerId()
+            {
+                OwnerId = ownerId
+            };
             var response = await _mediator.Send(request);
             return response;
         }
 
-        [HttpGet("GetWalletById/{id}")]
-        public async Task<WalletModel> Get([FromRoute]GetWalletById request)
+        [HttpGet("GetWalletById/{id:guid}")]
+        public async Task<WalletModel> Get(Guid id)
         {
+            var request = new GetWalletById
+            {
+                Id = id
+            };
+            var response = await _mediator.Send(request);
+            return response;
+        }
+
+        [HttpGet("Logs")]
+        public async Task<ProcessLogModel[]> Get()
+        {
+            var request = new GetProcessLogs();
             var response = await _mediator.Send(request);
             return response;
         }

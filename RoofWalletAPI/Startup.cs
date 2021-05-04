@@ -11,6 +11,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.DependencyModel;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
@@ -31,10 +32,14 @@ namespace RoofWalletAPI
         public void ConfigureServices(IServiceCollection services)
         {
             // DbContext inject ediliyor.
-            services.AddDbContext<RoofWalletContext>(option => option.UseInMemoryDatabase("RoofWallet"));
+            services.AddDbContext<RoofWalletContext>(option =>
+            {
+                option.UseInMemoryDatabase("RoofWallet");
+            });
             
             // Mediator inject ediliyor.
-            services.AddMediatR(Assembly.GetExecutingAssembly());
+            var assemblies = GetAssemblies();
+            services.AddMediatR(assemblies);
             
 
             services.AddControllers();
@@ -61,6 +66,12 @@ namespace RoofWalletAPI
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
+        }
+        
+        public static Assembly[] GetAssemblies()
+        {
+            var dependencies = DependencyContext.Default.RuntimeLibraries;
+            return (from library in dependencies where library.Dependencies.Any(x=> x.Name.Contains("RoofWallet")) select Assembly.Load(new AssemblyName(library.Name))).ToArray();
         }
     }
 }

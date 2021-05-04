@@ -3,7 +3,7 @@ using MediatR;
 
 namespace RoofWallet.Messages.Commands
 {
-    public class AddMoneyToWallet : IRequest<bool>
+    public class AddMoneyToWallet : IRequest<Guid>
     {
         public Guid WalletId { get; set; }
         public string CurrencyCode { get; set; }
