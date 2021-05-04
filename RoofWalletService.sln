@@ -1,0 +1,46 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RoofWalletAPI", "RoofWalletAPI\RoofWalletAPI.csproj", "{6A53EF14-8080-4C2C-8B79-23FCD22132A0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RoofWallet.Domain", "RoofWallet.Domain\RoofWallet.Domain.csproj", "{1833C895-7FBA-4235-BEB5-5BD622DB96CE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RoofWalletTests", "RoofWalletTests\RoofWalletTests.csproj", "{477F5429-9947-44C4-BBC8-57993FDD8C01}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RoofWallet.Messages", "RoofWallet.Messages\RoofWallet.Messages.csproj", "{BD2D59BE-004F-4FB9-B934-0204B6019B33}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RoofWallet.Commands", "RoofWallet.Commands\RoofWallet.Commands.csproj", "{8CD6BC0E-1110-460D-B601-B38593639BD3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RoofWallet.Queries", "RoofWallet.Queries\RoofWallet.Queries.csproj", "{FA3A3C0D-9055-4928-929F-1C8EDC0ACE16}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6A53EF14-8080-4C2C-8B79-23FCD22132A0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6A53EF14-8080-4C2C-8B79-23FCD22132A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6A53EF14-8080-4C2C-8B79-23FCD22132A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6A53EF14-8080-4C2C-8B79-23FCD22132A0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1833C895-7FBA-4235-BEB5-5BD622DB96CE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1833C895-7FBA-4235-BEB5-5BD622DB96CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1833C895-7FBA-4235-BEB5-5BD622DB96CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1833C895-7FBA-4235-BEB5-5BD622DB96CE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{477F5429-9947-44C4-BBC8-57993FDD8C01}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{477F5429-9947-44C4-BBC8-57993FDD8C01}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{477F5429-9947-44C4-BBC8-57993FDD8C01}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{477F5429-9947-44C4-BBC8-57993FDD8C01}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BD2D59BE-004F-4FB9-B934-0204B6019B33}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BD2D59BE-004F-4FB9-B934-0204B6019B33}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BD2D59BE-004F-4FB9-B934-0204B6019B33}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BD2D59BE-004F-4FB9-B934-0204B6019B33}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8CD6BC0E-1110-460D-B601-B38593639BD3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8CD6BC0E-1110-460D-B601-B38593639BD3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8CD6BC0E-1110-460D-B601-B38593639BD3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8CD6BC0E-1110-460D-B601-B38593639BD3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FA3A3C0D-9055-4928-929F-1C8EDC0ACE16}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FA3A3C0D-9055-4928-929F-1C8EDC0ACE16}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FA3A3C0D-9055-4928-929F-1C8EDC0ACE16}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FA3A3C0D-9055-4928-929F-1C8EDC0ACE16}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
