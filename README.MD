@@ -5,7 +5,7 @@
 * **I used EntityFrameworkCore.** I prefer it because it is the most common ORM framework for RDBMS databases. When I thought about domain layer, code first method was a better option. It can be in any database. (RDBMS or NOSQL)
 * **I used XUnit.** I used XUnit for unit tests.
 * **I used Swagger.** I used REST Api for documentation. Note: It comes by default when creating a new Web Api in .NET Core 5.0.
-* I kept the handlers separately as **Commants and Queries**. The reason for this is what I have experienced this until now, and I think it is more reliable and manageable to keep the operations to write directly to the database in CRUD operations. [See](https://henriquesd.medium.com/the-command-and-query-responsibility-segregation-cqrs-pattern-16cb7704c809#:~:text=The%20Command%20and%20Query%20Responsibility%20Segregation%20 (CQRS)%20it's%20an%20architectural,are%20responsible%20for%20update%20data)
+* I kept the handlers separately as **Commants and Queries**. The reason for this is what I have experienced this until now, and I think it is more reliable and manageable to keep the operations to write directly to the database in CRUD operations. [See](https://henriquesd.medium.com/the-command-and-query-responsibility-segregation-cqrs-pattern-16cb7704c809#:~:text=The%20Command%20and%20Query%20Responsibility%20Segregation%20(CQRS)%20it's%20an%20architectural,are%20responsible%20for%20update%20data)
 
 ### Unit Tests
 ![](docs/tests_result.PNG)
