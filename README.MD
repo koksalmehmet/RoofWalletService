@@ -1,11 +1,11 @@
-### Neyi neden kullandım?
-* **.NET Core 5.0 kullandım.**
-* **Onion mimarisi kullandım.** Günümüzde bir çok proje microservice mimarisiyle yazılmakta. Uygulamanın da bu mimariye uygun bir uygulama olduğunu düşündüm.
-* **MediatR kullandım.** Yaygın olarak yine C# .NET Core ile geliştirilen REST Api'lerde kullanılan pipeline için güzel ve kullanışlı bir framework olduğunu düşünüyorum.
-* **EntityFrameworkCore kullandım.** RDBMS veri tabanları için en yaygın ORM framework olduğundan tercih ediyorum. Domain'i düşünürken database bağımlı düşünmedim. Her hangi bir NoSQL databasede olabilir.
-* **XUnit kullandım.** Unit testler için XUnit kullandım.
-* **Swagger kullandım.** REST Api dökümantasyon için kullandım. Not: .NET Core 5.0'da yeni bir Web Api oluşturulurken default olarak geliyor.
-* **Commants ve Queries** olarak handlerları ayrı tuttum. Bunun sebebi hem bu zamana kadar böyle gördüm hemde CRUD işlemlerde database doğrudan yazan işlemlerin ayrı tutulması daha güvenilir ve yönetilebilir olduğunu düşünüyorum. [Bkz](https://henriquesd.medium.com/the-command-and-query-responsibility-segregation-cqrs-pattern-16cb7704c809#:~:text=The%20Command%20and%20Query%20Responsibility%20Segregation%20(CQRS)%20it's%20an%20architectural,are%20responsible%20for%20update%20data)
+### Why did I use what?
+* **I used .NET Core 5.0.**
+* **I used Onion architecture.** Many projects are written with microservice architecture in these days. It is also suitable for this one.
+* **I used MediatR.** I think it is a nice and useful framework for the pipeline, which is widely used in REST APIs developed with C# .NET Core.
+* **I used EntityFrameworkCore.** I prefer it because it is the most common ORM framework for RDBMS databases. When I thought about domain layer, code first method was a better option. It can be in any database. (RDBMS or NOSQL)
+* **I used XUnit.** I used XUnit for unit tests.
+* **I used Swagger.** I used REST Api for documentation. Note: It comes by default when creating a new Web Api in .NET Core 5.0.
+* I kept the handlers separately as **Commants and Queries**. The reason for this is what I have experienced this until now, and I think it is more reliable and manageable to keep the operations to write directly to the database in CRUD operations. [See](https://henriquesd.medium.com/the-command-and-query-responsibility-segregation-cqrs-pattern-16cb7704c809#:~:text=The%20Command%20and%20Query%20Responsibility%20Segregation%20 (CQRS)%20it's%20an%20architectural,are%20responsible%20for%20update%20data)
 
 ### Unit Tests
 ![](docs/tests_result.PNG)
