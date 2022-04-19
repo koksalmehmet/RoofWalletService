@@ -29,5 +29,7 @@
 
 ### Links and References
 [XUnit – Part 5: Share Test Context With IClassFixture and ICollectionFixture](https://hamidmosalla.com/2020/02/02/xunit-part-5-share-test-context-with-iclassfixture-and-icollectionfixture/)
+
 [https://xunit.net/docs/shared-context#collection-fixture](https://xunit.net/docs/shared-context#collection-fixture)
+
 [ASP.NET Core 'de birim test denetleyicisi mantığı](https://docs.microsoft.com/tr-tr/aspnet/core/mvc/controllers/testing?view=aspnetcore-5.0)
